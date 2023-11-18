@@ -1,19 +1,18 @@
 import pygame as pg
 import sys
 from settings import *
-
-
+from map import *
 
 class Game:
     def __init__(self) -> None:
-        pg.init()
+        pg.init()     #Обезательно
         self.screen = pg.display.set_mode(RES)
         self.clock = pg.time.Clock()
         self.delta_time = 1
         self.level = 1
-        self.new_game()
-        self.sounds = Sound(self)
-        pg.mixer.music.play(-1)
+        #self.new_game()
+        #self.sounds = Sound(self)
+        #pg.mixer.music.play(-1)
 
     def new_game(self):
         self.delta_time = self.clock.tick(FPS)
@@ -26,19 +25,20 @@ class Game:
         self.pathfinding = PathFinding(self)
 
     def update(self):
-        self.raycasting.update()
+        #self.raycasting.update()
         pg.display.flip()
-        self.player.update()
+        #self.player.update()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps() :.0f} danya_lox')
-        self.finish.update()
+        #self.finish.update()
 
     def draw(self):
         self.screen.fill('black')
-        self.map.draw()
-        self.player.draw()
-        self.npc_control.update()
-        self.finish.draw()
+        Map(game=self).draw()
+        #self.map.draw()
+        #self.player.draw()
+        #self.npc_control.update()
+        #self.finish.draw()
 
     def check_event(self):
        for event in pg.event.get():

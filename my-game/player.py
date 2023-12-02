@@ -8,14 +8,14 @@ class player:
         self.game = game
         self.angle = PLAYER_ANGLE
     def draw(self):
-        pg.draw.line(self.game.screen, 'green', (self.x * 100 + 14.5 * math.sin(self.angle), self.y * 100 - 14.5 * math.cos(self.angle)),
+        pg.draw.line(self.game.screen, 'cyan', (self.x * 100 + 14.5 * math.sin(self.angle), self.y * 100 - 14.5 * math.cos(self.angle)),
                      (self.x * 100 + 35 * math.cos(self.angle),
                      self.y * 100 + 35 * math.sin(self.angle)), 2)
-        pg.draw.line(self.game.screen, 'green', (self.x * 100 - 14.5 * math.sin(self.angle), self.y * 100 + 14.5 * math.cos(self.angle)),
+        pg.draw.line(self.game.screen, 'cyan', (self.x * 100 - 14.5 * math.sin(self.angle), self.y * 100 + 14.5 * math.cos(self.angle)),
                      (self.x * 100 + 35 * math.cos(self.angle),
                      self.y * 100 + 35 * math.sin(self.angle)), 2)
 
-        pg.draw.circle(self.game.screen, 'green',
+        pg.draw.circle(self.game.screen, 'turquoise',
                        (self.x * 100, self.y * 100), 15)
 
     def movement(self):
